@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/settings_title">
+
+    <PreferenceCategory android:title="@string/quiz_settings" />
+
+    <ListPreference
+        android:defaultValue="@string/settings_num_of_questions_default"
+        android:entries="@array/settings_num_of_questions_labels"
+        android:entryValues="@array/settings_num_of_questions_values"
+        android:key="@string/settings_num_of_questions_key"
+        android:title="@string/settings_num_of_questions_label" />
+
+    <ListPreference
+        android:defaultValue="@string/settings_time_per_question_default"
+        android:entries="@array/settings_time_per_question_labels"
+        android:entryValues="@array/settings_time_per_question_values"
+        android:key="@string/settings_time_per_question_key"
+        android:title="@string/settings_time_per_question_label" />
+
+</PreferenceScreen>

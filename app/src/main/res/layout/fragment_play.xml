@@ -1,13 +1,10 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:id="@+id/categories"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    tools:context="com.electroninc.quizapp.PlayFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Play fragment" />
-
-</FrameLayout>
+    android:layout_gravity="center_horizontal"
+    android:layout_marginLeft="12dp"
+    android:layout_marginRight="12dp"
+    android:layoutAnimation="@anim/layout_animation_fall_down"
+    tools:context="com.electroninc.quizapp.PlayFragment" />

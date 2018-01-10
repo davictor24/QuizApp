@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="settings_num_of_questions_labels">
+        <item>@string/settings_num_of_questions_5_label</item>
+        <item>@string/settings_num_of_questions_10_label</item>
+        <item>@string/settings_num_of_questions_15_label</item>
+        <item>@string/settings_num_of_questions_20_label</item>
+    </string-array>
+
+    <string-array name="settings_num_of_questions_values">
+        <item>@string/settings_num_of_questions_5_value</item>
+        <item>@string/settings_num_of_questions_10_value</item>
+        <item>@string/settings_num_of_questions_15_value</item>
+        <item>@string/settings_num_of_questions_20_value</item>
+    </string-array>
+
+    <string-array name="settings_time_per_question_labels">
+        <item>@string/settings_time_per_question_5_label</item>
+        <item>@string/settings_time_per_question_10_label</item>
+        <item>@string/settings_time_per_question_15_label</item>
+        <item>@string/settings_time_per_question_20_label</item>
+        <item>@string/settings_time_per_question_25_label</item>
+        <item>@string/settings_time_per_question_30_label</item>
+    </string-array>
+
+    <string-array name="settings_time_per_question_values">
+        <item>@string/settings_time_per_question_5_value</item>
+        <item>@string/settings_time_per_question_10_value</item>
+        <item>@string/settings_time_per_question_15_value</item>
+        <item>@string/settings_time_per_question_20_value</item>
+        <item>@string/settings_time_per_question_25_value</item>
+        <item>@string/settings_time_per_question_30_value</item>
+    </string-array>
+</resources>

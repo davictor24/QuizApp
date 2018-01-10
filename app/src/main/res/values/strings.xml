@@ -1,11 +1,63 @@
 <resources>
     <string name="app_name">QuizApp</string>
+
     <string name="title_play">Play</string>
     <string name="title_settings">Settings</string>
     <string name="title_about">About</string>
+
     <string name="about_text">
         QuizApp
-        \n\nThis app was developed as the the final project for the Andela Learning Community (ALC) with Google programme, Android Beginner track.
+        \n\nThis app was developed as the final project for the Andela Learning Community (ALC) with Google programme, Android Beginner track.
         \n\nFor help and questions, contact the developer on durojaiyevic@gmail.com, or call +2347064944477
+        \n\nNote:
+        \nThis app uses the Qriusity public API to fetch quiz questions (https://qriusity.com/), so internet connection is required.
+        We promise to not consume much of your data; all we do is fetch text responses from the server :).
     </string>
+
+    <string name="settings_title">Settings</string>
+
+    <string name="settings_num_of_questions_label">Number of questions</string>
+    <string name="settings_num_of_questions_key" translatable="false">num_of_questions</string>
+    <string name="settings_num_of_questions_default" translatable="false">@string/settings_num_of_questions_10_value</string>
+
+    <string name="settings_num_of_questions_5_label">5</string>
+    <string name="settings_num_of_questions_5_value" translatable="false">5</string>
+
+    <string name="settings_num_of_questions_10_label">10</string>
+    <string name="settings_num_of_questions_10_value" translatable="false">10</string>
+
+    <string name="settings_num_of_questions_15_label">15</string>
+    <string name="settings_num_of_questions_15_value" translatable="false">15</string>
+
+    <string name="settings_num_of_questions_20_label">20</string>
+    <string name="settings_num_of_questions_20_value" translatable="false">20</string>
+
+    <string name="settings_time_per_question_label">Time per question</string>
+    <string name="settings_time_per_question_key" translatable="false">time_per_question</string>
+    <string name="settings_time_per_question_default" translatable="false">@string/settings_time_per_question_10_value</string>
+
+    <string name="settings_time_per_question_5_label">5 seconds</string>
+    <string name="settings_time_per_question_5_value" translatable="false">5</string>
+
+    <string name="settings_time_per_question_10_label">10 seconds</string>
+    <string name="settings_time_per_question_10_value" translatable="false">10</string>
+
+    <string name="settings_time_per_question_15_label">15 seconds</string>
+    <string name="settings_time_per_question_15_value" translatable="false">15</string>
+
+    <string name="settings_time_per_question_20_label">20 seconds</string>
+    <string name="settings_time_per_question_20_value" translatable="false">20</string>
+
+    <string name="settings_time_per_question_25_label">25 seconds</string>
+    <string name="settings_time_per_question_25_value" translatable="false">25</string>
+
+    <string name="settings_time_per_question_30_label">30 seconds</string>
+    <string name="settings_time_per_question_30_value" translatable="false">30</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="quiz_setup">Quiz Setup</string>
+    <string name="search">Search</string>
+    <string name="search_category">Search category</string>
+    <string name="quiz_settings">Quiz settings</string>
 </resources>
