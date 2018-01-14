@@ -1,11 +1,11 @@
 package com.electroninc.quizapp;
 
 import android.app.Activity;
-import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import android.os.Bundle;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,12 +62,17 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
                 @Override
                 public void onClick(View view) {
                     int pos = getAdapterPosition();
+                    Category category = mCategories.get(pos);
                     Intent intent = new Intent(mContext, SetupActivity.class);
-                    intent.putExtra("category", mCategories.get(pos).getCategoryName());
+                    intent.putExtra("category_name", category.getCategoryName());
+                    intent.putExtra("category_image", category.getImageResourceId());
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(mActivity).toBundle();
-                        mContext.startActivity(intent, bundle);
+                        Pair<View, String> p1 = Pair.create(view.findViewById(R.id.category_image), "category_image");
+                        Pair<View, String> p2 = Pair.create(view.findViewById(R.id.category_name), "category_name");
+                        ActivityOptionsCompat options = ActivityOptionsCompat.
+                                makeSceneTransitionAnimation(mActivity, p1, p2);
+                        mContext.startActivity(intent, options.toBundle());
                     } else {
                         mContext.startActivity(intent);
                     }

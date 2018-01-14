@@ -4,7 +4,5 @@
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
-    android:layout_marginLeft="12dp"
-    android:layout_marginRight="12dp"
     android:layoutAnimation="@anim/layout_animation_fall_down"
     tools:context="com.electroninc.quizapp.PlayFragment" />

@@ -11,7 +11,6 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.transition.Explode;
 import android.transition.Fade;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -24,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private FragmentManager mFragmentManager;
     private AppBarLayout mAppBarLayout;
     private ActionBar mActionBar;
+    private BottomNavigationView mNavigation;
     private MenuItem mSearch;
 
     private ArrayList<String> mActionBarTexts;
@@ -60,17 +60,13 @@ public class MainActivity extends AppCompatActivity {
         mActionBar = getSupportActionBar();
         mAppBarLayout = findViewById(R.id.appbarlayout);
 
-        BottomNavigationView navigation = findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        mNavigation = findViewById(R.id.navigation);
+        mNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) navigation.getLayoutParams();
+        CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) mNavigation.getLayoutParams();
         layoutParams.setBehavior(new BottomNavigationViewBehavior());
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Explode exitAnimation = new Explode();
-            exitAnimation.setDuration(800);
-            getWindow().setExitTransition(exitAnimation);
-
             Fade reEntryAnimation = new Fade();
             reEntryAnimation.setDuration(700);
             getWindow().setReenterTransition(reEntryAnimation);
@@ -130,6 +126,8 @@ public class MainActivity extends AppCompatActivity {
         mActionBar.setTitle(mActionBarTexts.get(i));
         mAppBarLayout.setExpanded(true);
         if (mSearch != null) mSearch.setVisible(i == 0);
+        mNavigation.clearAnimation();
+        mNavigation.animate().translationY(0).setDuration(200);
     }
 
 }

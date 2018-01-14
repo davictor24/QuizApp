@@ -20,16 +20,16 @@
     <string name="settings_num_of_questions_key" translatable="false">num_of_questions</string>
     <string name="settings_num_of_questions_default" translatable="false">@string/settings_num_of_questions_10_value</string>
 
-    <string name="settings_num_of_questions_5_label">5</string>
+    <string name="settings_num_of_questions_5_label">5 questions</string>
     <string name="settings_num_of_questions_5_value" translatable="false">5</string>
 
-    <string name="settings_num_of_questions_10_label">10</string>
+    <string name="settings_num_of_questions_10_label">10 questions</string>
     <string name="settings_num_of_questions_10_value" translatable="false">10</string>
 
-    <string name="settings_num_of_questions_15_label">15</string>
+    <string name="settings_num_of_questions_15_label">15 questions</string>
     <string name="settings_num_of_questions_15_value" translatable="false">15</string>
 
-    <string name="settings_num_of_questions_20_label">20</string>
+    <string name="settings_num_of_questions_20_label">20 questions</string>
     <string name="settings_num_of_questions_20_value" translatable="false">20</string>
 
     <string name="settings_time_per_question_label">Time per question</string>
@@ -60,4 +60,11 @@
     <string name="search">Search</string>
     <string name="search_category">Search category</string>
     <string name="quiz_settings">Quiz settings</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="name">Name: </string>
+    <string name="start_quiz">Start quiz</string>
+    <string name="number_of_questions">Number of questions: </string>
+    <string name="time_per_question">Time per question: </string>
+    <string name="change_default_values_in_settings">You can change the default values of the below in Settings.</string>
+    <string name="quiz">Quiz</string>
 </resources>
