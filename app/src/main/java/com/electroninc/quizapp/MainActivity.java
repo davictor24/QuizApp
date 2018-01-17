@@ -112,11 +112,7 @@ public class MainActivity extends AppCompatActivity {
         mActionBarTexts.add(getString(R.string.title_settings));
         mActionBarTexts.add(getString(R.string.title_about));
 
-        if (mFragmentManager.findFragmentByTag(mTags.get(0)) == null
-                && mFragmentManager.findFragmentByTag(mTags.get(1)) == null
-                && mFragmentManager.findFragmentByTag(mTags.get(2)) == null) {
-            switchFragment(0);
-        }
+        switchFragment(0);
     }
 
     private void switchFragment(int i) {

@@ -23,18 +23,24 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
 
         Preference timePerQuestion = findPreference(getString(R.string.settings_time_per_question_key));
         bindPreferenceSummaryToValue(timePerQuestion);
+
+        Preference difficulty = findPreference(getString(R.string.settings_difficulty_key));
+        bindPreferenceSummaryToValue(difficulty);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object value) {
-        String stringValue = value.toString();
-        ListPreference listPreference = (ListPreference) preference;
-        int prefIndex = listPreference.findIndexOfValue(stringValue);
-        if (prefIndex >= 0) {
-            CharSequence[] labels = listPreference.getEntries();
-            preference.setSummary(labels[prefIndex]);
+        if (preference instanceof ListPreference) {
+            String stringValue = value.toString();
+            ListPreference listPreference = (ListPreference) preference;
+            int prefIndex = listPreference.findIndexOfValue(stringValue);
+            if (prefIndex >= 0) {
+                CharSequence[] labels = listPreference.getEntries();
+                preference.setSummary(labels[prefIndex]);
+            }
+            return true;
         }
-        return true;
+        return false;
     }
 
     private void bindPreferenceSummaryToValue(Preference preference) {

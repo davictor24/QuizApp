@@ -65,7 +65,6 @@ public class PlayFragment extends Fragment {
             recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
             CategoryAdapter categoryAdapter = new CategoryAdapter(getActivity(), categories);
             recyclerView.setAdapter(categoryAdapter);
-
         } catch (IOException ex) {
             Toast.makeText(getActivity(), "An error occurred", Toast.LENGTH_LONG).show();
         }
@@ -84,13 +83,16 @@ public class PlayFragment extends Fragment {
         // is formatted, a JSONException exception object will be thrown.
         try {
 
-            // Create a JSONArray from the JSON response string
-            JSONArray baseJsonResponse = new JSONArray(json);
+            // Create a JSONObject from the JSON response string
+            JSONObject baseJsonResponse = new JSONObject(json);
+
+            // Create a JSONArray from the base JSONObject
+            JSONArray categoriesArray = baseJsonResponse.getJSONArray("trivia_categories");
 
             // For each category in the categoryArray, create an {@link Category} object
-            for (int i = 0; i < baseJsonResponse.length(); i++) {
+            for (int i = 0; i < categoriesArray.length(); i++) {
                 // Get a single category at position i within the list of categories
-                JSONObject currentCategory = baseJsonResponse.getJSONObject(i);
+                JSONObject currentCategory = categoriesArray.getJSONObject(i);
 
                 // Extract the value for the key called "name"
                 String categoryName = currentCategory.getString("name");

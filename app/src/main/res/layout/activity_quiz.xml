@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.electroninc.quizapp.QuizActivity">
 
     <LinearLayout
+        android:id="@+id/quiz_loading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
@@ -13,7 +15,6 @@
         android:orientation="vertical">
 
         <ProgressBar
-            android:id="@+id/loading_spinner"
             style="?android:progressBarStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -22,9 +23,40 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Loading quiz data. Please wait..."
+            android:text="@string/loading_quiz_data"
             android:textAppearance="?android:textAppearanceLarge" />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/empty_state_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:visibility="gone"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/no_internet"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_internet_connection_message"
+            android:textAlignment="center"
+            android:textAppearance="?android:textAppearanceMedium" />
+
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/questions_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
 
 </RelativeLayout>

@@ -10,7 +10,7 @@
         \n\nThis app was developed as the final project for the Andela Learning Community (ALC) with Google programme, Android Beginner track.
         \n\nFor help and questions, contact the developer on durojaiyevic@gmail.com, or call +2347064944477
         \n\nNote:
-        \nThis app uses the Qriusity public API to fetch quiz questions (https://qriusity.com/), so internet connection is required.
+        \nThis app uses the Open Trivia Database public API to fetch quiz questions (https://opentdb.com/), so internet connection is required.
         We promise to not consume much of your data; all we do is fetch text responses from the server :).
     </string>
 
@@ -54,8 +54,19 @@
     <string name="settings_time_per_question_30_label">30 seconds</string>
     <string name="settings_time_per_question_30_value" translatable="false">30</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="settings_difficulty_label">Difficulty</string>
+    <string name="settings_difficulty_key" translatable="false">difficulty</string>
+    <string name="settings_difficulty_default" translatable="false">@string/settings_difficulty_medium_value</string>
+
+    <string name="settings_difficulty_easy_label">Easy</string>
+    <string name="settings_difficulty_easy_value" translatable="false">easy</string>
+
+    <string name="settings_difficulty_medium_label">Medium</string>
+    <string name="settings_difficulty_medium_value" translatable="false">medium</string>
+
+    <string name="settings_difficulty_hard_label">Hard</string>
+    <string name="settings_difficulty_hard_value" translatable="false">hard</string>
+
     <string name="quiz_setup">Quiz Setup</string>
     <string name="search">Search</string>
     <string name="search_category">Search category</string>
@@ -67,4 +78,7 @@
     <string name="time_per_question">Time per question: </string>
     <string name="change_default_values_in_settings">You can change the default values of the below in Settings.</string>
     <string name="quiz">Quiz</string>
+    <string name="no_internet_connection_message">No internet connection. Please check your connection and try again.</string>
+    <string name="loading_quiz_data">Loading quiz data. Please wait…</string>
+    <string name="difficulty">Difficulty: </string>
 </resources>

@@ -31,4 +31,16 @@
         <item>@string/settings_time_per_question_25_value</item>
         <item>@string/settings_time_per_question_30_value</item>
     </string-array>
+
+    <string-array name="settings_difficulty_labels">
+        <item>@string/settings_difficulty_easy_label</item>
+        <item>@string/settings_difficulty_medium_label</item>
+        <item>@string/settings_difficulty_hard_label</item>
+    </string-array>
+
+    <string-array name="settings_difficulty_values">
+        <item>@string/settings_difficulty_easy_value</item>
+        <item>@string/settings_difficulty_medium_value</item>
+        <item>@string/settings_difficulty_hard_value</item>
+    </string-array>
 </resources>

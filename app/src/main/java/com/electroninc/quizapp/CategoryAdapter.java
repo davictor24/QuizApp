@@ -65,6 +65,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
                     Category category = mCategories.get(pos);
                     Intent intent = new Intent(mContext, SetupActivity.class);
                     intent.putExtra("category_name", category.getCategoryName());
+                    intent.putExtra("category_id", category.getCategoryId());
                     intent.putExtra("category_image", category.getImageResourceId());
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
