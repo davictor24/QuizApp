@@ -40,6 +40,8 @@ final class QueryUtils {
             Toast.makeText(context, "Error in fetching questions", Toast.LENGTH_LONG).show();
         }
 
+        QuizActivity.currentPage = 0;
+        QuizActivity.score = 0;
         return extractFeatureFromJson(jsonResponse);
     }
 

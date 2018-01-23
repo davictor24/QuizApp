@@ -16,6 +16,10 @@ import android.widget.TextView;
 
 public class SetupActivity extends AppCompatActivity {
 
+    public static final String EXTRA_CATEGORY_NAME = "category_name";
+    public static final String EXTRA_CATEGORY_ID = "category_id";
+    public static final String EXTRA_CATEGORY_IMAGE = "category_image";
+
     private Spinner mNumberOfQuestionsSpinner;
     private Spinner mTimePerQuestionSpinner;
     private Spinner mDifficultySpinner;
@@ -32,13 +36,13 @@ public class SetupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup);
 
-        String categoryName = getIntent().getStringExtra("category_name");
+        String categoryName = getIntent().getStringExtra(EXTRA_CATEGORY_NAME);
         TextView categoryTextView = findViewById(R.id.quiz_category);
         categoryTextView.setText(categoryName);
 
-        final String categoryId = String.valueOf(getIntent().getIntExtra("category_id", 0));
+        final String categoryId = String.valueOf(getIntent().getIntExtra(EXTRA_CATEGORY_ID, 0));
 
-        int categoryImage = getIntent().getIntExtra("category_image", 0);
+        int categoryImage = getIntent().getIntExtra(EXTRA_CATEGORY_IMAGE, 0);
         ImageView categoryImageView = findViewById(R.id.quiz_image);
         categoryImageView.setImageResource(categoryImage);
 
@@ -47,11 +51,11 @@ public class SetupActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(SetupActivity.this, QuizActivity.class);
-                intent.putExtra("category_id", categoryId);
-                intent.putExtra("name", mNameEditText.getText().toString());
-                intent.putExtra("number_of_questions", mNumberOfQuestions);
-                intent.putExtra("time_per_question", mTimePerQuestion);
-                intent.putExtra("difficulty", mDifficulty);
+                intent.putExtra(QuizActivity.EXTRA_CATEGORY_ID, categoryId);
+                intent.putExtra(QuizActivity.EXTRA_NAME, mNameEditText.getText().toString());
+                intent.putExtra(QuizActivity.EXTRA_NUMBER_OF_QUESTIONS, mNumberOfQuestions);
+                intent.putExtra(QuizActivity.EXTRA_TIME_PER_QUESTION, mTimePerQuestion);
+                intent.putExtra(QuizActivity.EXTRA_DIFFICULTY, mDifficulty);
 
                 startActivity(intent);
             }

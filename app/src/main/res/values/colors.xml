@@ -7,4 +7,6 @@
     <color name="transparentWhite">#CCFFFFFF</color>
     <color name="moreTransparentWhite">#88FFFFFF</color>
     <color name="text_light">#616161</color>
+    <color name="correct_option">#4CAF50</color>
+    <color name="wrong_option">#F44336</color>
 </resources>

@@ -15,19 +15,30 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class QuizActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Question>> {
 
+    public static final String EXTRA_NAME = "name";
+    public static final String EXTRA_CATEGORY_ID = "category_id";
+    public static final String EXTRA_NUMBER_OF_QUESTIONS = "number_of_questions";
+    public static final String EXTRA_TIME_PER_QUESTION = "time_per_question";
+    public static final String EXTRA_DIFFICULTY = "difficulty";
+
     private static final int LOADER_ID = 0;
     private static final String BASE_URI = "https://opentdb.com/api.php";
+    public static String name;
+    public static int currentPage = 0;
+    public static int score = 0;
     private String mRequestUri;
     private LinearLayout mQuizLoading;
     private LinearLayout mEmptyStateView;
     private ViewPager mQuestionsViewPager;
+
+    private String mNumberOfQuestions;
+    private String mTimePerQuestions;
 
     private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
@@ -45,27 +56,33 @@ public class QuizActivity extends AppCompatActivity implements LoaderManager.Loa
         mEmptyStateView = findViewById(R.id.empty_state_view);
         mQuestionsViewPager = findViewById(R.id.questions_view_pager);
 
-//        String name = getIntent().getStringExtra("name");
-//        String timePerQuestions = getIntent().getStringExtra("time_per_questions");
+        mNumberOfQuestions = getIntent().getStringExtra(EXTRA_NUMBER_OF_QUESTIONS);
+        mTimePerQuestions = getIntent().getStringExtra(EXTRA_TIME_PER_QUESTION);
 
-        String categoryId = getIntent().getStringExtra("category_id");
-        String numberOfQuestions = getIntent().getStringExtra("number_of_questions");
-        String difficulty = getIntent().getStringExtra("difficulty");
+        name = getIntent().getStringExtra(EXTRA_NAME);
+        String categoryId = getIntent().getStringExtra(EXTRA_CATEGORY_ID);
+        String difficulty = getIntent().getStringExtra(EXTRA_DIFFICULTY);
 
         Uri baseUri = Uri.parse(BASE_URI);
         Uri.Builder uriBuilder = baseUri.buildUpon();
 
         uriBuilder.appendQueryParameter("category", categoryId);
-        uriBuilder.appendQueryParameter("amount", numberOfQuestions);
+        uriBuilder.appendQueryParameter("amount", mNumberOfQuestions);
         uriBuilder.appendQueryParameter("difficulty", difficulty);
 
         mRequestUri = uriBuilder.toString();
 
-        Toast.makeText(this, mRequestUri, Toast.LENGTH_LONG).show();
+//        Toast.makeText(this, mRequestUri, Toast.LENGTH_LONG).show();
 
         registerReceiver(broadcastReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
 
         networkStateChanged();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        finish();
     }
 
     @Override
@@ -105,7 +122,7 @@ public class QuizActivity extends AppCompatActivity implements LoaderManager.Loa
 
         ArrayList<QuestionFragment> questionFragments = new ArrayList<>();
         for (Question datum : data)
-            questionFragments.add(QuestionFragment.newInstance(datum));
+            questionFragments.add(QuestionFragment.newInstance(datum, mNumberOfQuestions, mTimePerQuestions));
 
         QuizzesAdapter quizzesAdapter = new QuizzesAdapter(getSupportFragmentManager(), questionFragments);
         mQuestionsViewPager.setAdapter(quizzesAdapter);
@@ -125,8 +142,8 @@ public class QuizActivity extends AppCompatActivity implements LoaderManager.Loa
             mQuizLoading.setVisibility(View.GONE);
             mEmptyStateView.setVisibility(View.VISIBLE);
         } else {
-            mQuizLoading.setVisibility(View.VISIBLE);
             mEmptyStateView.setVisibility(View.GONE);
+            mQuizLoading.setVisibility(View.VISIBLE);
             getSupportLoaderManager().initLoader(LOADER_ID, null, this);
         }
     }

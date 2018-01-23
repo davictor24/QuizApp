@@ -81,4 +81,10 @@
     <string name="no_internet_connection_message">No internet connection. Please check your connection and try again.</string>
     <string name="loading_quiz_data">Loading quiz data. Please wait…</string>
     <string name="difficulty">Difficulty: </string>
+    <string name="you_scored">You scored</string>
+    <string name="well_done">Well done!</string>
+    <string name="do_better">You can do better.</string>
+    <string name="play_again">Play again</string>
+    <string name="transition_category_image">category_image</string>
+    <string name="transition_category_name">category_name</string>
 </resources>

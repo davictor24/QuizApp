@@ -2,6 +2,7 @@ package com.electroninc.quizapp;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by D A Victor on 16-Jan-18.
@@ -22,6 +23,7 @@ public class Question implements Serializable {
 
         mCorrectAnswerIndex = (int) (Math.random() * (mIncorrectAnswers.size() + 1));
         mAnswers = (ArrayList<String>) mIncorrectAnswers.clone();
+        Collections.shuffle(mAnswers);
         mAnswers.add(mCorrectAnswerIndex, mCorrectAnswer);
     }
 

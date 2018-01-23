@@ -20,6 +20,10 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String FRAGMENT_TAG_PLAY = "play";
+    private static final String FRAGMENT_TAG_SETTINGS = "settings";
+    private static final String FRAGMENT_TAG_ABOUT = "about";
+
     private FragmentManager mFragmentManager;
     private AppBarLayout mAppBarLayout;
     private ActionBar mActionBar;
@@ -72,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
             getWindow().setReenterTransition(reEntryAnimation);
         }
 
+
         setupFragment();
     }
 
@@ -103,16 +108,20 @@ public class MainActivity extends AppCompatActivity {
         mFragments.add(new AboutFragment());
 
         mTags = new ArrayList<>();
-        mTags.add("play");
-        mTags.add("settings");
-        mTags.add("about");
+        mTags.add(FRAGMENT_TAG_PLAY);
+        mTags.add(FRAGMENT_TAG_SETTINGS);
+        mTags.add(FRAGMENT_TAG_ABOUT);
 
         mActionBarTexts = new ArrayList<>();
         mActionBarTexts.add(getString(R.string.title_play));
         mActionBarTexts.add(getString(R.string.title_settings));
         mActionBarTexts.add(getString(R.string.title_about));
 
-        switchFragment(0);
+        if (mFragmentManager.findFragmentByTag(FRAGMENT_TAG_PLAY) == null
+                && mFragmentManager.findFragmentByTag(FRAGMENT_TAG_SETTINGS) == null
+                && mFragmentManager.findFragmentByTag(FRAGMENT_TAG_ABOUT) == null) {
+            switchFragment(0);
+        }
     }
 
     private void switchFragment(int i) {

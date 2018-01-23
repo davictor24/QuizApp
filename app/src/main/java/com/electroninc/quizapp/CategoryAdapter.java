@@ -64,14 +64,14 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
                     int pos = getAdapterPosition();
                     Category category = mCategories.get(pos);
                     Intent intent = new Intent(mContext, SetupActivity.class);
-                    intent.putExtra("category_name", category.getCategoryName());
-                    intent.putExtra("category_id", category.getCategoryId());
-                    intent.putExtra("category_image", category.getImageResourceId());
+                    intent.putExtra(SetupActivity.EXTRA_CATEGORY_NAME, category.getCategoryName());
+                    intent.putExtra(SetupActivity.EXTRA_CATEGORY_ID, category.getCategoryId());
+                    intent.putExtra(SetupActivity.EXTRA_CATEGORY_IMAGE, category.getImageResourceId());
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        Pair<View, String> p1 = Pair.create(view.findViewById(R.id.category_image), "category_image");
-                        Pair<View, String> p2 = Pair.create(view.findViewById(R.id.category_name), "category_name");
-                        ActivityOptionsCompat options = ActivityOptionsCompat.
+                        Pair<View, String> p1 = Pair.create(view.findViewById(R.id.category_image), mContext.getString(R.string.transition_category_image));
+                        Pair<View, String> p2 = Pair.create(view.findViewById(R.id.category_name), mContext.getString(R.string.transition_category_name));
+                        @SuppressWarnings("unchecked") ActivityOptionsCompat options = ActivityOptionsCompat.
                                 makeSceneTransitionAnimation(mActivity, p1, p2);
                         mContext.startActivity(intent, options.toBundle());
                     } else {

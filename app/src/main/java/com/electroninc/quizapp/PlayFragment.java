@@ -1,6 +1,7 @@
 package com.electroninc.quizapp;
 
 import android.app.Fragment;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
@@ -62,7 +63,12 @@ public class PlayFragment extends Fragment {
             ArrayList<Category> categories = (ArrayList<Category>) extractCategories(json);
 
             RecyclerView recyclerView = view.findViewById(R.id.categories);
-            recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+
+            Configuration config = getResources().getConfiguration();
+            int width = config.screenWidthDp;
+            int spanCount = (width > 600) ? 3 : 2;
+
+            recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), spanCount));
             CategoryAdapter categoryAdapter = new CategoryAdapter(getActivity(), categories);
             recyclerView.setAdapter(categoryAdapter);
         } catch (IOException ex) {
